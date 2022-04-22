@@ -1,14 +1,21 @@
 
-function buildDeck()
+function buildDeck(){
+}
 
-function shuffleDeck()
+function shuffleDeck(){
+}
 
-function startGame()
+function startGame(){
+}
 
-function hit()
+function hit(){
+}
 
-function stay()
+function stay(){
+}
 
-function getValue()
+function getValue(){
+}
 
-function checkAce
+function checkAce(){
+}
