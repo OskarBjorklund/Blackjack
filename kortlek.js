@@ -80,7 +80,6 @@ for (let i = 0; i < färger.length; i++) {
     kortlek.lägg_till_kort(kort);
   }
 }
-console.log(kortlek.visa_lek());
 
 // 3. Testa att blanda kortleken med blanda() och visa kortleken igen.
 
