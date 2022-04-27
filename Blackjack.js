@@ -1,0 +1,1 @@
+import Kortlek from './kortlek.js'
