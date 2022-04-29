@@ -1,6 +1,5 @@
 const färger = ["♠", "♥", "♦", "♣"];
 const valörer = [
-  "A",
   "2",
   "3",
   "4",
@@ -10,12 +9,57 @@ const valörer = [
   "8",
   "9",
   "10",
-  "J",
-  "D",
-  "K",
+  "Knekt",
+  "Dam",
+  "Kung",
+  "Ess",
 ];
+const värde = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "10", "10", "10", "Ess"];
 
-//gör classen kortlek, export default-för att kunna importera den in till andra filer
-export default class kortlek {
+// Klass för att skapa spelkort
+class Kort {
+  constructor(valör, färg, värde) {
+    this.valör = valör;
+    this.färg = färg;
+    this.värde = värde;
+  }
+}
 
+// Klass för stack
+class Kortlek {
+  constructor() {
+    this.stack = [];
+  }
+
+  // Lägg ett kort överst i leken
+  lägg_till_kort(item) {
+    this.stack.push(item);
+  }
+  // Ta ett kort överst från leken
+  dra_kort() {
+    let draget_kort = this.stack.pop();
+    return draget_kort;
+  }
+
+  // Visa korten som finns i leken (I ordning)
+  visa_lek() {
+    this.stack.forEach((kort) => {
+      console.log(kort.färg, kort.valör, kort.värde);
+    });
+  }
+
+  // Visa hur många kort som finns
+  visa_längd() {
+    console.log(`Kortleken har ${this.stack.length} kort`);
+  }
+
+  // Blanda leken
+  blanda() {
+    for (let i = this.stack.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = this.stack[i];
+      this.stack[i] = this.stack[j];
+      this.stack[j] = temp;
+    }
+  }
 }
