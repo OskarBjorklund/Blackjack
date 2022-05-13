@@ -1,4 +1,4 @@
-const färger = ["♠", "♥", "♦", "♣"];
+const färger = ["S", "H", "D", "C"];
 const valörer = [
   "2",
   "3",
@@ -9,12 +9,12 @@ const valörer = [
   "8",
   "9",
   "10",
-  "Knekt",
-  "Dam",
-  "Kung",
-  "Ess",
+  "J",
+  "Q",
+  "K",
+  "A",
 ];
-const värde = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "10", "10", "10", "Ess"];
+const värde = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, "Ess"];
 
 // Klass för att skapa spelkort
 class Kort {
@@ -44,7 +44,7 @@ class Kortlek {
   // Visa korten som finns i leken (I ordning)
   visa_lek() {
     this.stack.forEach((kort) => {
-      console.log(kort.färg, kort.valör, kort.värde);
+      console.log(kort.valör, kort.färg, kort.värde);
     });
   }
 
