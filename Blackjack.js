@@ -1,5 +1,4 @@
-let dealer_hand = [];
-let spelare_hand = [];
+
 
 function ny_kortlek(){
   let kortlek = new Kortlek();
@@ -15,34 +14,43 @@ function ny_kortlek(){
 
 function värdera(kort){
   let handsumma = 0;
+  let antal_ess = 0;
   for (let i = 0; i <= kort.length - 1; i++){
-    if (kort[i].värde == "Ess"){
-      if (11 + handsumma > 21){
-        handsumma += 1;
-      }
-      else{
-        handsumma += 11;
-      }
-    }
-    else{
-    handsumma += kort[i].värde;
     console.log(kort[i]);
+    if (kort[i].värde == "Ess"){
+      antal_ess += 1;
+    }
+    else {
+    handsumma += kort[i].värde;
     }
   }
+  for (let i = 0; i < antal_ess; i++){
+    if (handsumma+11*(antal_ess-i) > 21){
+      handsumma += 1;
+    }
+    else {
+      handsumma += 11;
+    }
+  }
+  
   return handsumma;
 }
 
-let kortlek = ny_kortlek();
+function starta_spel(){
+  let kortlek = ny_kortlek();
 
-kortlek.blanda();
+  kortlek.blanda()
 
-spelare_hand.push(kortlek.dra_kort());
+  let dealer_hand = [];
+  let spelare_hand = [];
+  
+  for(let i = 0; i < 2; i++){
+    dealer_hand.push(kortlek.dra_kort());
+    spelare_hand.push(kortlek.dra_kort());
+  }
+}
 
-spelare_hand.push(kortlek.dra_kort());
-
-spelare_hand.push(kortlek.dra_kort());
-
-console.log(spelare_hand);
+starta_spel()
 
 
-console.log(värdera(spelare_hand));
+//spelare_hand.push(kortlek.dra_kort()); 
