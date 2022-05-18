@@ -1,18 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css">
-    <title>JavaScript FTW</title>
-</head>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Blackjack</title>
+        <link rel="stylesheet" href="style.css"
+    </head>
 
-<body>
-    <script src="kortlek.js"></script>
-    <script src="blackjack.js"></script>
-</body>
+    <body>
+        <script src="kortlek.js"></script>
+        <script src="blackjack.js"></script>
 
+        <h2>Dealer: <span id="dealer_summa"></span></h2>
+        <div id="dealer_kort">
+            <img id="gömt" src="./cards/BACK.png">
+        </div>
+            
+        <h2>Spelare: <span id="spelare_summa"></span></h2>
+        <div id="spelare_kort"></div>
+
+        <br>
+        <button id="hit">Hit</button>
+        <button id="stanna">Stanna</button>
+        <p id="resultat"></p>
+        <br>
+        <button id="satsa">Satsa</button>
+    </body>
 
 </html>
