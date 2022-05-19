@@ -48,7 +48,7 @@ window.onload = function starta_spel(){
   let gömt_kort = kortlek.dra_kort();
   dealer_hand.push(gömt_kort);
 
-  while (värdera(dealer_hand) < 17){
+  for (let i = 0; i < 1; i++){
     let kortImg = document.createElement("img");
     let kort = kortlek.dra_kort();
     dealer_hand.push(kort);
@@ -56,7 +56,6 @@ window.onload = function starta_spel(){
     kortImg.src = "./cards/"+ kort.valör + "-" + kort.färg + ".png"
     document.getElementById("dealer_kort").append(kortImg)
   }
-  console.log(värdera(dealer_hand))
 
   for (let i = 0; i < 2; i++){
     let kortImg = document.createElement("img");
@@ -70,7 +69,6 @@ window.onload = function starta_spel(){
 
   document.getElementById("hit").addEventListener("click", hit);
   document.getElementById("stanna").addEventListener("click", stanna);
-
 
 
   function hit() {
