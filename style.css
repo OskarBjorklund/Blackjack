@@ -6,23 +6,38 @@ body {
 #dealer_kort img {
   height: 175px;
   width: 125px;
-  margin: 1px;
+  margin: 3px;
 }
 
 #spelare_kort img {
   height: 175px;
   width: 125px;
-  margin: 1px;
+  margin: 3px;
 }
 
 #hit {
   height: 50px;
   width: 100px;
   margin: 1px;
+  background-image: url("button.png");
+  background-size: 100% 100%;
+  font-size: 130%;
 }
 
 #stanna {
   height: 50px;
   width: 100px;
   margin: 1px;
+  background-image: url("button.png");
+  background-size: 100% 100%;
+  font-size: 130%;
+}
+
+#ny_runda {
+  height: 50px;
+  width: 120px;
+  margin: 1px;
+  background-image: url("button.png");
+  background-size: 100% 100%;
+  font-size: 130%;
 }

@@ -1,5 +1,3 @@
-let kan_hit = true;
-
 function ny_kortlek(){
   let kortlek = new Kortlek();
 
@@ -36,27 +34,31 @@ function värdera(kort){
   return handsumma;
 }
 
-
 window.onload = function starta_spel(){
+  let kan_hit = true;
+
   let kortlek = ny_kortlek();
 
-  kortlek.blanda()
+  kortlek.blanda();
 
   let dealer_hand = [];
   let spelare_hand = [];
+  let dealer_gömd_hand = [];
 
-  let gömt_kort = kortlek.dra_kort();
+  
+  let gömt_kort = kortlek.dra_kort(); 
+  dealer_gömd_hand.push(gömt_kort);
   dealer_hand.push(gömt_kort);
 
-  while (värdera(dealer_hand) < 17){
+  for (let i = 0; i < 1; i++){
     let kortImg = document.createElement("img");
     let kort = kortlek.dra_kort();
     dealer_hand.push(kort);
 
-    kortImg.src = "./cards/"+ kort.valör + "-" + kort.färg + ".png"
-    document.getElementById("dealer_kort").append(kortImg)
+    kortImg.src = "./cards/"+ kort.valör + "-" + kort.färg + ".png";
+    document.getElementById("dealer_kort").append(kortImg);
+    document.getElementById("dealer_summa").innerText = (värdera(dealer_hand)-värdera(dealer_gömd_hand) + " + ?");
   }
-  console.log(värdera(dealer_hand))
 
   for (let i = 0; i < 2; i++){
     let kortImg = document.createElement("img");
@@ -70,7 +72,6 @@ window.onload = function starta_spel(){
 
   document.getElementById("hit").addEventListener("click", hit);
   document.getElementById("stanna").addEventListener("click", stanna);
-
 
   function hit() {
     if (!kan_hit){
@@ -87,14 +88,26 @@ window.onload = function starta_spel(){
     if (värdera(spelare_hand) > 21){
       kan_hit = false;
       console.log(värdera(spelare_hand));
+      stanna()
+      }
     }
-  }
 
   function stanna(){
+    
     kan_hit = false;
     document.getElementById("gömt").src = "./cards/"+ dealer_hand[0].valör + "-" + dealer_hand[0].färg + ".png";
 
+    while (värdera(dealer_hand) < 17){
+      let kortImg = document.createElement("img");
+      let kort = kortlek.dra_kort();
+      dealer_hand.push(kort);
+  
+      kortImg.src = "./cards/"+ kort.valör + "-" + kort.färg + ".png"
+      document.getElementById("dealer_kort").append(kortImg)
+    }
+
     let resultat = "";
+
     if (värdera(spelare_hand) > 21){
       resultat = "Du förlorade!"
     }
@@ -113,9 +126,11 @@ window.onload = function starta_spel(){
     document.getElementById("dealer_summa").innerText = värdera(dealer_hand);
     document.getElementById("spelare_summa").innerText = värdera(spelare_hand);
     document.getElementById("resultat").innerText = resultat;
-  }
-  
+
+    document.getElementById("ny_runda").addEventListener("click", ny_runda);
+
+    function ny_runda(){
+      document.location.reload()
+    }
+  }  
 }
-
-
-//spelare_hand.push(kortlek.dra_kort()); 
