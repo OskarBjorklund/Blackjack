@@ -72,6 +72,7 @@ window.onload = function starta_spel(){
   document.getElementById("stanna").addEventListener("click", stanna);
 
 
+
   function hit() {
     if (!kan_hit){
       return;
@@ -87,10 +88,21 @@ window.onload = function starta_spel(){
     if (värdera(spelare_hand) > 21){
       kan_hit = false;
       console.log(värdera(spelare_hand));
+      stanna();
     }
   }
 
   function stanna(){
+
+    while (värdera(dealer_hand) < 17){
+      let kortImg = document.createElement("img");
+      let kort = kortlek.dra_kort();
+      dealer_hand.push(kort);
+  
+      kortImg.src = "./cards/"+ kort.valör + "-" + kort.färg + ".png"
+      document.getElementById("dealer_kort").append(kortImg)
+    }
+
     kan_hit = false;
     document.getElementById("gömt").src = "./cards/"+ dealer_hand[0].valör + "-" + dealer_hand[0].färg + ".png";
 
