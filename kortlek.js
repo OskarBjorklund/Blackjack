@@ -1,19 +1,5 @@
 const färger = ["S", "H", "D", "C"];
-const valörer = [
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  "10",
-  "J",
-  "Q",
-  "K",
-  "A",
-];
+const valörer = ["2","3","4","5","6","7","8","9","10","J","Q","K","A",];
 const värde = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, "Ess"];
 
 // Klass för att skapa spelkort
@@ -35,22 +21,11 @@ class Kortlek {
   lägg_till_kort(item) {
     this.stack.push(item);
   }
+
   // Ta ett kort överst från leken
   dra_kort() {
     let draget_kort = this.stack.pop();
     return draget_kort;
-  }
-
-  // Visa korten som finns i leken (I ordning)
-  visa_lek() {
-    this.stack.forEach((kort) => {
-      console.log(kort.valör, kort.färg, kort.värde);
-    });
-  }
-
-  // Visa hur många kort som finns
-  visa_längd() {
-    console.log(`Kortleken har ${this.stack.length} kort`);
   }
 
   // Blanda leken

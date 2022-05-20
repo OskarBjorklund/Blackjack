@@ -17,16 +17,22 @@
         }
     </style>
     <body>
+        <!--Kopplar ihop kortlek.js med blackjack.js-->
         <script src="kortlek.js"></script>
         <script src="blackjack.js"></script>
+
+        <h2>Dealer stands on soft 17</h2>
 
         <h2>Dealer: <span id="dealer_summa"></span></h2>
         <div id="dealer_kort">
             <img id="gömt" src="./cards/BACK.png">
+            <!--Här läggs bilderna till för dealerns kort-->
         </div>
             
         <h2>Spelare: <span id="spelare_summa"></span></h2>
-        <div id="spelare_kort"></div>
+        <div id="spelare_kort">
+            <!--Här läggs bilderna till för dealerns kort-->
+        </div>
 
         <br>
         <button id="hit">Hit</button>
